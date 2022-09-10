@@ -29,8 +29,8 @@ function addBookToLibrary() {
 		myLibrary.push(newBook);
 		displayLibrary();
 		hideForm();
+		addBookCard.classList.remove("hidden");
 	} else alert("Please fill in all of the fields to add a book.");
-	addBookCard.classList.remove("hidden");
 }
 
 function displayLibrary() {
