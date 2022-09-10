@@ -13,29 +13,30 @@
 			<h1>Library</h1>
 		</header>
 		<main>
-			<div class="card">
+			<div class="card new-book">
 				<h2>New Book</h2>
-				<fieldset id="book-info">
-					<label for="title">Title </label>
-					<input type="text" name="title" id="title" />
+				<fieldset class="book-info-container">
+					<label for="title" class="label">Title</label>
+					<input type="text" name="title" id="title"/>
 
-					<label for="author">Author </label>
-					<input type="text" name="author" id="author" />
+					<label for="author" class="label">Author</label>
+					<input type="text" name="author" id="author"/>
 
-					<label for="pages">Pages </label>
-					<input type="number" name="pages" id="pages" pattern="\d*" maxlength="4" />
+					<label for="pages" class="label">Pages</label>
+					<input type="number" name="pages" id="pages" pattern="\d*" maxlength="4"/>
 
-					<label for="read">Read </label>
+					<label for="read" class="label">Read</label>
 					<input type="checkbox" name="read" id="read" />
 				</fieldset>
 				<div class="buttons">
-					<button type="button" class="save">Save</button>
-					<button type="button" class="remove">Remove</button>
+					<button type="button" class="removeBTN"></button>
+					<button type="button" class="addBTN"></button>
 				</div>
 			</div>
 
-			<div class="card card-empty">
-				<button class="add">
+			<div class="card add-book-card">
+				<h2>Add Book</h2>
+				<button class="plusBTN">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="24"

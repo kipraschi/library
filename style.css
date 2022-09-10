@@ -1,22 +1,29 @@
+@font-face {
+	font-family: Aboreto;
+	src: url('./fonts/Aboreto/Aboreto-Regular.ttf');
+} 
+
+:root {
+	--main-bg: 219, 15%, 18%;
+	--card-bg-white: 250, 30%, 95%;
+	--header-bg: 224, 31%, 10%;
+	--add-green: 158, 95%, 26%;
+	--remove-bg-red: 2, 63%, 54%;
+	--plus-yellow: 40, 90%, 60%;
+
+    font-family: Aboreto, 'Roboto', sans-serif;
+    font-style: regular;
+    font-weight: 400;
+}
+
 * {
-	font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
 	margin: 0;
 	padding: 0;
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-}
-
-:root {
-	--main-bg: 219, 15%, 18%;
-	--card-bg: 250, 30%, 95%;
-	--header-bg: 224, 31%, 10%;
-	--save-bg: 158, 85%, 26%;
-	--remove-bg: 2, 63%, 54%;
-	--plus: 40, 80%, 60%;
+	height: 100vh;
+    color: hsl(var(--header-bg));
 }
 
 header {
@@ -31,64 +38,70 @@ header {
 }
 
 main {
-	height: 100%;
+	min-height: 100%;
 	background-color: hsl(var(--main-bg));
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 400px;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-auto-rows: 400px;
 	gap: 1em;
 	padding: 1em;
-    justify-content: center;
+	justify-content: center;
 }
 
 .card {
-    max-width: 200px;
-    padding: 1em 2em;
+	max-width: 200px;
+	padding: 1em 2em;
 	color: hsla(var(--header-bg), 1);
-	background-color: hsla(var(--card-bg));
+	background-color: hsla(var(--card-bg-white));
 	border-radius: 15px;
 	display: grid;
-    grid-template-rows: 0.5fr 4fr 1fr;
-    gap: 0.5em;
-    /* justify-items: center; */
+	grid-template-rows: 0.5fr 4fr 1fr;
+	gap: 0.5em;
 }
 
-.card-empty {
-	background-color: hsla(var(--card-bg), 0.5);
-    place-items: center;
-
+.add-book-card {
+	background-color: hsla(var(--header-bg), 0.4);
+	place-items: center;
 }
 
+.add-book-card > h2 {
+    color: hsl(var(--card-bg-white));
+}
+
+.book-info-container,
 fieldset {
+	grid-row: 2 / 3;
 	border: 0;
 	display: grid;
 	gap: 0.25em;
 }
 
-.buttons {
-    display: grid;
-    grid-auto-flow: row;
-    justify-content: center;
-    gap: 1em;
+.book-property {
+    font-weight: 500;
+    font-size: 1.2em;
 }
 
 label {
 	display: block;
 }
 
+.label {
+    color: hsl(var(--header-bg), 0.8);
+}
+
 input {
-    height: 2em;
-    box-sizing: border-box;
-	border: 0;
-	background-color: hsla(var(--plus), 0.9);
+	font-family: Aboreto;
+	height: 2em;
+	box-sizing: border-box;
+	background-color: hsla(var(--card-bg-white), 0.5);
+	border: 1px solid hsla(var(--header-bg));
 	border-radius: 5px;
-    padding: 0.25em 0.5em;
-    outline: none;
+	padding: 0.25em 0.5em;
+	outline: none;
 }
 
 input:focus {
-	background-color: hsla(var(--plus), 1);
-
+	border: 1px solid hsla(var(--plus-yellow));
 }
 
 input[type="text"] {
@@ -103,59 +116,79 @@ input[type="checkbox"] {
 	width: 30px;
 }
 
+.buttons {
+	grid-row: 3 / 4;
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: center;
+	gap: 0.5em;
+}
+
 button {
-	color: hsla(var(--card-bg));
+	color: hsla(var(--card-bg-white));
 	padding: 0.5em 1em;
 	border-radius: 10px;
-    border: 0;
-    width: 7em;
-    height: 3em;
-    transition: 0.3s linear;
+	border: 0;
+	width: 6em;
+	height: 3em;
 }
 
 button:hover {
 	cursor: pointer;
-
 }
 
-.save {
-    background-color: hsla(var(--save-bg), 0.9);
+.addBTN {
+	background-color: hsla(var(--add-green), 0.9);
 }
 
-.save:hover{
-    background-color: hsla(var(--save-bg), 1);
+.addBTN:hover {
+	background-color: hsla(var(--add-green), 1);
 }
 
-.remove {
-    background-color: hsla(var(--remove-bg), 0.9);
-
+.addBTN::after {
+	content: "Add";
 }
 
-.remove:hover{
-    background-color: hsla(var(--remove-bg), 1);
+.removeBTN {
+	background: none;
+	color: hsla(var(--remove-bg-red));
+	border: 1px solid hsla(var(--remove-bg-red));
 }
 
-.add {
-	font-size: 2em;
-	font-weight: 600;
-    height: 100px;
-    width: 100px;
-    grid-row: 2 / 3;
-    background-color: hsl(var(--plus), 0.8);
+.removeBTN:hover {
+	background-color: hsla(var(--remove-bg-red), .025)
 }
 
-.add:hover{
-    background-color: hsl(var(--plus));
+.removeBTN::after {
+	content: "Remove";
 }
 
-.add:hover > svg{
-    transform: scale(1.2);
+.plusBTN {
+    color: hsl(var(--card-bg-white));
+    color: white;
+	height: 100px;
+	width: 100px;
+	grid-row: 2 / 3;
+	background-color: hsl(var(--plus-yellow), 0.8);
 }
 
-svg{
-    transition: 0.2s ease-in-out;
+.plusBTN:hover {
+	background-color: hsla(var(--plus-yellow), 0.9);
 }
 
-.removed {
+.plusBTN:hover > svg {
+	transform: scale(1.2);
+}
+
+svg {
+	transition: 0.2s ease-in-out;
+}
+
+h1 {
+	font-size: 3.5em;
+	letter-spacing: 2px;
+}
+
+.hidden {
 	display: none;
 }
