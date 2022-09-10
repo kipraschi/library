@@ -19,10 +19,6 @@ function Book(title, author, pages, read) {
 	this.Read = read;
 }
 
-Book.prototype.info = function toggleStatus(bool) {
-	if(bool) this.read = true;
-};
-
 function addBookToLibrary() {
 	let title = document.querySelector("#title").value;
 	let author = document.querySelector("#author").value;
@@ -34,7 +30,7 @@ function addBookToLibrary() {
 		displayLibrary();
 		hideForm();
 	} else alert("Please fill in all of the fields to add a book.");
-	// addBookCard.classList.remove("hidden");
+	addBookCard.classList.remove("hidden");
 }
 
 function displayLibrary() {
@@ -94,7 +90,7 @@ function showNewForm() {
 	formCard.querySelector("#author").value = "";
 	formCard.querySelector("#pages").value = "";
 	formCard.querySelector("#read").checked = false;
-	// addBookCard.classList.add("hidden");
+	addBookCard.classList.add("hidden");
 }
 
 function hideForm() {
