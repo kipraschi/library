@@ -112,6 +112,7 @@ function showNewForm() {
 
 function hideForm() {
 	formCard.classList.add("hidden");
+	addBookCard.classList.remove("hidden");
 }
 
 function removeBook() {
