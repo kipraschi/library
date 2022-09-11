@@ -19,11 +19,18 @@ function Book(title, author, pages, read) {
 	this.Read = read;
 }
 
+Book.prototype.toggleState = function (state) {
+	if (state === undefined) {
+		this.Read ? (this.Read = false) : (this.Read = true);
+	} else this.Read = state;
+	return this.Read;
+};
+
 function addBookToLibrary() {
 	let title = document.querySelector("#title").value;
 	let author = document.querySelector("#author").value;
 	let pages = document.querySelector("#pages").value;
-	let read = document.querySelector("#read");
+	let read = document.querySelector("#read").checked;
 	let newBook = new Book(title, author, pages, read);
 	if (title != 0 && author != 0 && pages != 0) {
 		myLibrary.push(newBook);
@@ -58,9 +65,19 @@ function displayBook(book, index) {
 		let label = document.createElement("div");
 		label.classList.add("label");
 		label.textContent = key;
-		let property = document.createElement("div");
+		const property = document.createElement("div");
 		property.classList.add("book-property");
-		key == "Read" ? (property = value.cloneNode(true)) : (property.textContent = value);
+		if (key == "Read") {
+			const readToggle = document.createElement("input");
+			readToggle.setAttribute("type", "checkbox");
+			readToggle.addEventListener("click", () => {
+				book.toggleState();
+			});
+			readToggle.checked = book.toggleState(value);
+			property.appendChild(readToggle);
+		} else {
+			property.textContent = value;
+		}
 		infoContainer.append(label, property);
 	}
 

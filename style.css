@@ -1,7 +1,7 @@
 @font-face {
 	font-family: Aboreto;
-	src: url('./fonts/Aboreto/Aboreto-Regular.ttf');
-} 
+	src: url("./fonts/Aboreto/Aboreto-Regular.ttf");
+}
 
 :root {
 	--main-bg: 219, 15%, 18%;
@@ -11,9 +11,9 @@
 	--remove-bg-red: 2, 63%, 54%;
 	--plus-yellow: 40, 90%, 60%;
 
-    font-family: Aboreto, 'Roboto', sans-serif;
-    font-style: regular;
-    font-weight: 400;
+	font-family: Aboreto, "Roboto", sans-serif;
+	font-style: regular;
+	font-weight: 400;
 }
 
 * {
@@ -23,7 +23,7 @@
 
 body {
 	height: 100vh;
-    color: hsl(var(--header-bg));
+	color: hsl(var(--header-bg));
 }
 
 header {
@@ -65,7 +65,7 @@ main {
 }
 
 .add-book-card > h2 {
-    color: hsl(var(--card-bg-white));
+	color: hsl(var(--card-bg-white));
 }
 
 .book-info-container,
@@ -77,8 +77,8 @@ fieldset {
 }
 
 .book-property {
-    font-weight: 500;
-    font-size: 1.2em;
+	font-weight: 500;
+	font-size: 1.2em;
 }
 
 label {
@@ -86,7 +86,7 @@ label {
 }
 
 .label {
-    color: hsl(var(--header-bg), 0.8);
+	color: hsl(var(--header-bg), 0.8);
 }
 
 input {
@@ -124,11 +124,11 @@ input[type="checkbox"] {
 }
 
 input:checked[type="checkbox"] {
-	background-color: hsl(var(--plus-yellow));	
+	background-color: hsl(var(--plus-yellow));
 }
 
 input[type="checkbox"]::before {
-	content: '';
+	content: "";
 	position: absolute;
 	width: 2em;
 	height: 2em;
@@ -136,8 +136,8 @@ input[type="checkbox"]::before {
 	top: 0;
 	left: 0;
 	background-color: hsl(219, 35%, 30%);
-	box-shadow: 0 2x 5px rgba(0, 0, 0, 0.2);
-	transition: .5s;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	transition: 0.5s;
 }
 
 input:checked[type="checkbox"]::before {
@@ -183,7 +183,7 @@ button:hover {
 }
 
 .removeBTN:hover {
-	background-color: hsla(var(--remove-bg-red), .025)
+	background-color: hsla(var(--remove-bg-red), 0.025);
 }
 
 .removeBTN::after {
@@ -191,8 +191,8 @@ button:hover {
 }
 
 .plusBTN {
-    color: hsl(var(--card-bg-white));
-    color: white;
+	color: hsl(var(--card-bg-white));
+	color: white;
 	height: 100px;
 	width: 100px;
 	grid-row: 2 / 3;
