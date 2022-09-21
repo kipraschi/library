@@ -12,11 +12,13 @@ removeButton.addEventListener("click", hideForm);
 
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-	this.Title = title;
-	this.Author = author;
-	this.Pages = pages;
-	this.Read = read;
+class Book {
+	constructor(title, author, pages, read) {
+		this.Title = title;
+		this.Author = author;
+		this.Pages = pages;
+		this.Read = read;
+	}
 }
 
 Book.prototype.toggleState = function (state) {
